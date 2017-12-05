@@ -11,11 +11,6 @@
 #' @examples
 #'     fun_freqsum_table(my_df , "C:\\Users\\tlin\\Dropbox\\Richie\\RFiles\\summary.csv")
 #'     fun_freqsum_table(my_df , "C:\\Users\\tlin\\Dropbox\\Richie\\RFiles\\summary.csv", x = 50,  sort_by = "VARIABLE", sort_descending = T)
-
-
-
-
-
 fun_freqsum_table <- function(dataset, 
                               path_report_output,
                               x = 20,

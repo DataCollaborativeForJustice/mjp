@@ -10,9 +10,6 @@
 #' @examples
 #'     freqsum(my_df$col1)
 #'     freqsum(my_df$col2, x = 50, sort_by = "VARIABLE", sort_descending = T)
-
-
-
 freqsum <-
     function(InputCol,
              x = 20,

@@ -1,3 +1,17 @@
+#' Frequency summary report, a MJP team defined function
+#' 
+#' @param dataset     a dataset to run the summary
+#' @param path_report_output a path to store the summary output, have to be specified as a .csv file.
+#' @param x     number of categories shown in the summary table, default = 20.
+#' @param sort_by      sort summary table by "VARIABLE" = category lable or "COUNT" = freqency
+#' @param sort_descending     show the result in acsending or descending order, default = TRUE, in descending order.
+#' 
+#' @return  A .csv file has the frequency summary table for each of the variable.
+#' 
+#' @examples
+#'     fun_freqsum_table(my_df , "C:\\Users\\tlin\\Dropbox\\Richie\\RFiles\\summary.csv")
+#'     fun_freqsum_table(my_df , "C:\\Users\\tlin\\Dropbox\\Richie\\RFiles\\summary.csv", x = 50,  sort_by = "VARIABLE", sort_descending = T)
+#' @export
 fun_freqsum_table <- function(dataset, 
                               path_report_output,
                               x = 20,

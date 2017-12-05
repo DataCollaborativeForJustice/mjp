@@ -1,3 +1,18 @@
+#' Frequency summary, a MJP team defined function
+#' 
+#' @param InputCol     Input column or vector, will be convert into factor.
+#' @param x number     of categories shown in the summary table, default = 20.
+#' @param sort_by      sort summary table by "VARIABLE" = category lable or "COUNT" = freqency
+#' @param sort_descending     show the result in acsending or descending order, default = TRUE, in descending order.
+#' 
+#' @return     A frequency summary table with percentage.
+#' 
+#' @examples
+#'     freqsum(my_df$col1)
+#'     freqsum(my_df$col2, x = 50, sort_by = "VARIABLE", sort_descending = T)
+
+
+
 freqsum <-
     function(InputCol,
              x = 20,

@@ -2,3 +2,4 @@
 
 export(freqsum)
 export(fun_freqsum_table)
+export(nameCol)

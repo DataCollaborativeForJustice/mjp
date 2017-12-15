@@ -21,3 +21,7 @@ A vector (character) that contains the replacement values from the reference tab
 \description{
 Logical assignment, a MJP team defined function
 }
+\examples{
+     ref_table <- data.frame(cars = rownames(mtcars), cyl = mtcars$cyl)
+     fun_logic_assg(rownames(mtcars) , ref_table, typo_col = "cars", replace_col = "cyl")
+}

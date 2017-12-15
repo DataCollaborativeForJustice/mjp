@@ -9,8 +9,8 @@
 #' @return  A vector (character) that contains the replacement values from the reference table
 #' 
 #' @examples
-#       ref_table <- data.frame(cars = rownames(mtcars), cyl = mtcars$cyl)
-#       fun_logic_assg(rownames(mtcars) , ref_table, typo_col = "cars", replace_col = "cyl")
+#'      ref_table <- data.frame(cars = rownames(mtcars), cyl = mtcars$cyl)
+#'      fun_logic_assg(rownames(mtcars) , ref_table, typo_col = "cars", replace_col = "cyl")
 #' @export
 fun_logic_assg <- function(x , reference, typo_col = "TYPO", replace_col = "REPLACEMENT"){
     #Count the initial NAs or blanks

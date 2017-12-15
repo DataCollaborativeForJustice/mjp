@@ -2,4 +2,5 @@
 
 export(freqsum)
 export(fun_freqsum_table)
+export(fun_logic_assg)
 export(nameCol)

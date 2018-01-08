@@ -4,16 +4,19 @@
 \alias{freqsum}
 \title{Frequency summary, a MJP team defined function}
 \usage{
-freqsum(InputCol, x = 20, sort_by = "COUNT", sort_descending = T)
+freqsum(InputCol, x = 20, sort_by = "COUNT", sort_descending = T,
+  big_mark = NA)
 }
 \arguments{
 \item{InputCol}{Input column or vector, will be convert into factor.}
 
-\item{x}{number     of categories shown in the summary table, default = 20.}
+\item{x}{number of categories shown in the summary table, default = 20.}
 
 \item{sort_by}{sort summary table by "VARIABLE" = category lable or "COUNT" = freqency}
 
 \item{sort_descending}{show the result in acsending or descending order, default = TRUE, in descending order.}
+
+\item{big_mark}{adding seperator in the big numbers. if you dont like the scientific notation when using this on large numbers, please change your globle enviromental variable with 'option(scipen = 999)' .}
 }
 \value{
 A frequency summary table with percentage.

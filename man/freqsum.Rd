@@ -5,7 +5,7 @@
 \title{Frequency summary, a MJP team defined function}
 \usage{
 freqsum(InputCol, x = 20, sort_by = "COUNT", sort_descending = T,
-  big_mark = NA)
+  big_mark = NA, round_percent = 4)
 }
 \arguments{
 \item{InputCol}{Input column or vector, will be convert into factor.}
@@ -17,6 +17,8 @@ freqsum(InputCol, x = 20, sort_by = "COUNT", sort_descending = T,
 \item{sort_descending}{show the result in acsending or descending order, default = TRUE, in descending order.}
 
 \item{big_mark}{adding seperator in the big numbers. if you dont like the scientific notation when using this on large numbers, please change your globle enviromental variable with 'option(scipen = 999)' .}
+
+\item{round_percent}{the accuracy of the percentage in the summary table of fator variable, 4 digits by default.}
 }
 \value{
 A frequency summary table with percentage.

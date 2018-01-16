@@ -5,6 +5,7 @@
 #' @param sort_by      sort summary table by "VARIABLE" = category lable or "COUNT" = freqency
 #' @param sort_descending     show the result in acsending or descending order, default = TRUE, in descending order.
 #' @param big_mark adding seperator in the big numbers. if you dont like the scientific notation when using this on large numbers, please change your globle enviromental variable with 'option(scipen = 999)' .
+#' @param round_percent the accuracy of the percentage in the summary table of fator variable, 4 digits by default.
 #' 
 #' @return     A frequency summary table with percentage.
 #' 
@@ -17,7 +18,8 @@ freqsum <-
              x = 20,
              sort_by = "COUNT",
              sort_descending = T,
-             big_mark = NA) {
+             big_mark = NA,
+             round_percent=4) {
         if (any(is.integer(InputCol),
                 is.numeric(InputCol))) {
             tmp_sum <-
@@ -44,7 +46,7 @@ freqsum <-
             tmpvar <- cbind(TempVar = row.names(tmpvar), tmpvar)
             row.names(tmpvar) <- c()
             tmpvar$Percentage <-
-                paste(round(tmpvar$Freq / sum(tmpvar$Freq) * 100, 4), "%")
+                paste(round(tmpvar$Freq / sum(tmpvar$Freq) * 100, round_percent), "%")
             names(tmpvar) <-
                 c("VARIABLE", "COUNT", "PERCENTAGE")
             tmpvar_no_oth_na <-

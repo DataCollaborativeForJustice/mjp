@@ -6,6 +6,7 @@
 #' @param sort_descending     show the result in acsending or descending order, default = TRUE, in descending order.
 #' @param big_mark adding seperator in the big numbers. if you dont like the scientific notation when using this on large numbers, please change your globle enviromental variable with 'option(scipen = 999)' .
 #' @param round_percent the accuracy of the percentage in the summary table of fator variable, 4 digits by default.
+#' @param round_use_zero Default is to use the zero in the decimal instead of dropping it when rounding results in a whole number for the percentage column.
 #' 
 #' @return     A frequency summary table with percentage.
 #' 
@@ -19,7 +20,8 @@ freqsum <-
              sort_by = "COUNT",
              sort_descending = T,
              big_mark = NA,
-             round_percent=4) {
+             round_percent = 4,
+             round_use_zero = TRUE) {
         if (any(is.integer(InputCol),
                 is.numeric(InputCol))) {
             tmp_sum <-
@@ -45,8 +47,17 @@ freqsum <-
             tmpvar <- data.frame(Freq = (summary(as.factor(InputCol), x)))
             tmpvar <- cbind(TempVar = row.names(tmpvar), tmpvar)
             row.names(tmpvar) <- c()
-            tmpvar$Percentage <-
-                paste(round(tmpvar$Freq / sum(tmpvar$Freq) * 100, round_percent), "%")
+
+            ifelse(test = round_use_zero,
+                   ## IF round_use_zero IS TRUE, KEEP TRAILING ZEROS AFTER DECIMAL (DEFAULT)
+                       yes = tmpvar$Percentage <-
+                           paste(formatC(
+                               x=round(x=tmpvar$Freq / sum(tmpvar$Freq) * 100, digits=round_percent),
+                               format='f', digits=round_percent), "%"),
+                   ## IF round_use_zero IS NOT TRUE, DROP TRAILING ZEROS AFTER DECIMAL
+                       no = tmpvar$Percentage <-
+                           paste(x=round(x=tmpvar$Freq / sum(tmpvar$Freq) * 100, digits=round_percent), "%"))
+
             names(tmpvar) <-
                 c("VARIABLE", "COUNT", "PERCENTAGE")
             tmpvar_no_oth_na <-
@@ -70,6 +81,6 @@ freqsum <-
             row.names(tmpvar) <- c(1:nrow(tmpvar))
             out <- tmpvar
         }
-        
+
         return(out)
     }

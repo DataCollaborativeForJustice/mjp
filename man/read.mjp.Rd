@@ -4,7 +4,7 @@
 \alias{read.mjp}
 \title{Read in a Data Set Encrypted with GPG, an MJP team defined function}
 \usage{
-read.mjp(file, tmp.path = "~/Documents/")
+read.mjp(file, tmp.path = path.expand("~/Documents/"))
 }
 \arguments{
 \item{file}{Path to the data file encrypted with GNU Privacy Guard (GPG).  This currently works for CSV, SPSS, Stata, Rdata, and rds file types that have been ecrypted using GPG.}

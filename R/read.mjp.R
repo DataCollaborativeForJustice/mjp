@@ -21,7 +21,8 @@
 ## REMOVES THE LOCAL COPIES AND THE TEMPORARY DIRECTORY;
 ## WRITTEN BY ADAM G. FERA ON 2017-12-20
 ######################################################################
-read.mjp <- function(file, tmp.path="~/Documents/") {
+######################################################################
+read.mjp <- function(file, tmp.path=path.expand("~/Documents/")) {
     ## CREATE A NEW DIRECTORY IN WHICH TO SAVE FILES
     tempDir <- paste0(tmp.path, "mjp.temp/")
     dir.create(path=tempDir)

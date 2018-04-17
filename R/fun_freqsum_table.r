@@ -28,7 +28,7 @@ fun_freqsum_table <- function(dataset,
         write.table(
             data.frame(i ,
                        names(dataset)[i],
-                       class(dataset[, i])),
+                       class(dataset[, i])[1]),
             path_report_output,
             sep = ",",
             row.names = F,
@@ -49,10 +49,9 @@ fun_freqsum_table <- function(dataset,
         } else if (is.POSIXct(dataset[, i])) {
             tmp_sum <-
                 as.data.frame(unclass(summary(dataset[, i])))
-            tmp_sum[, 2] <- tmp_sum[, 1]
-            tmp_sum[, 1] <- rownames(tmp_sum)
             tmp_sum[, 2] <-
-                as.POSIXct(tmp_sum[, 2], origin = ymd("1970-01-01"))
+                as.POSIXct(tmp_sum[, 1], origin = ymd("1970-01-01"))
+            tmp_sum[, 1] <- rownames(tmp_sum)
             names(tmp_sum) <-
                 c("Descriptive" , names(dataset)[i])
         } else if (any(is.logical(dataset[, i]),

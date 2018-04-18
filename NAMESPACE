@@ -2,6 +2,7 @@
 
 export(freqsum)
 export(fun_freqsum_table)
+export(fun_livefeed_dd_overview)
 export(fun_logic_assg)
 export(nameCol)
 export(read.mjp)
